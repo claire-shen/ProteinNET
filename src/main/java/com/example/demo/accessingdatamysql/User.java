@@ -3,91 +3,97 @@ package com.example.demo.accessingdatamysql;
 import jakarta.persistence.*;
 
 @Entity
-@Table (name = "List")
+@Table (name = "members")
 public class User {
+
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer PersonId;
-    private Integer Age;
-    private String LastName;
-    private String FirstName;
-    private String Address;
-    private String City;
-    private Boolean FreePass;
-    private Float Fee;
-
-    public User(Integer personId, Integer age, String lastName, String firstName, String address, String city, Boolean freePass, Float fee) {
-        PersonId = personId;
-        Age = age;
-        LastName = lastName;
-        FirstName = firstName;
-        Address = address;
-        City = city;
-        FreePass = freePass;
-        Fee = fee;
-    }
+    @Column(name = "PersonID")
+    private Integer personID;
 
     public Integer getPersonId() {
-        return PersonId;
+        return personID;
     }
 
     public void setPersonId(Integer personId) {
-        PersonId = personId;
+        this.personID = personId; // Corrected variable assignment
     }
 
+
+    @Column(name = "Age")
+    private Integer age;
+
     public Integer getAge() {
-        return Age;
+        return age;
     }
 
     public void setAge(Integer age) {
-        Age = age;
+        this.age = age;
     }
 
+    @Column(name = "LastName")
+    private String lastName;
+
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        LastName = lastName;
+        this.lastName = lastName;
     }
 
+    @Column(name = "FirstName")
+    private String firstName;
+
     public String getFirstName() {
-        return FirstName;
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
-        FirstName = firstName;
+        this.firstName = firstName;
     }
 
+    @Column(name = "Address")
+    private String address;
+
     public String getAddress() {
-        return Address;
+        return address;
     }
 
     public void setAddress(String address) {
-        Address = address;
+        this.address = address;
     }
 
+    @Column(name = "City")
+    private String city;
+
     public String getCity() {
-        return City;
+        return city;
     }
 
     public void setCity(String city) {
-        City = city;
+        this.city = city;
     }
 
+    @Column(name = "FreePass")
+    private Boolean freePass;
+
     public Boolean getFreePass() {
-        return FreePass;
+        return freePass;
     }
 
     public void setFreePass(Boolean freePass) {
-        FreePass = freePass;
+        this.freePass = freePass;
     }
 
+    @Column(name = "Fee")
+    private Float fee;
+
     public Float getFee() {
-        return Fee;
+        return fee;
     }
 
     public void setFee(Float fee) {
-        Fee = fee;
+        this.fee = fee;
     }
 }

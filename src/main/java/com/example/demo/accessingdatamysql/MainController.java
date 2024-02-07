@@ -16,16 +16,30 @@ public class MainController {
     private UserRepository userRepository;
 
     @PostMapping(path="/add") // Map ONLY POST Requests
-    public @ResponseBody String addNewUser (@RequestParam String name
-            , @RequestParam String email) {
-        // @ResponseBody means the returned String is the response, not a view name
-        // @RequestParam means it is a parameter from the GET or POST request
+    public @ResponseBody String addNewUser (
+            @RequestParam Integer age,
+            @RequestParam String lastName,
+            @RequestParam String firstName,
+            @RequestParam String address,
+            @RequestParam String city,
+            @RequestParam Boolean freePass,
+            @RequestParam Float fee) {
 
-        User n = new User();
-        n.setName(name);
-        n.setEmail(email);
-        userRepository.save(n);
-        return "Saved";
+        // Create a new User object and set its properties
+        User user = new User();
+        user.setAge(age);
+        user.setFirstName(firstName);
+        user.setLastName(lastName);
+        user.setAddress(address);
+        user.setCity(city);
+        user.setFreePass(freePass);
+        user.setFee(fee);
+
+        // Save the user object to the database
+        userRepository.save(user);
+
+        // Return a response
+        return "User saved successfully!";
     }
 
     @GetMapping(path="/all")
