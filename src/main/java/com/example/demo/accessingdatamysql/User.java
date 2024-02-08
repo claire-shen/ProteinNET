@@ -2,12 +2,18 @@ package com.example.demo.accessingdatamysql;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
+import java.time.Period;
+
 @Entity
 @Table (name = "members")
 public class User {
 
+    @Transient // means that this field doesn't need to be column in database
+    private Integer age;
+
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "PersonID")
     private Integer personID;
 
@@ -17,18 +23,6 @@ public class User {
 
     public void setPersonId(Integer personId) {
         this.personID = personId; // Corrected variable assignment
-    }
-
-
-    @Column(name = "Age")
-    private Integer age;
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
     }
 
     @Column(name = "LastName")
@@ -95,5 +89,71 @@ public class User {
 
     public void setFee(Float fee) {
         this.fee = fee;
+    }
+
+
+    @Column(name = "Birth_Date")
+    private LocalDate birthDate;
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public Integer getAge() {
+        return Period.between(this.birthDate, LocalDate.now()).getYears();
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    //user.setAge(user.getAge());
+
+    @Column(name = "Squat")
+    private Integer squat;
+
+    public Integer getSquat() {
+        return squat;
+    }
+
+    public void setSquat(Integer squat) {
+        this.squat = squat;
+    }
+
+    @Column(name = "Deadlift")
+    private Integer deadlift;
+
+    public Integer getDeadlift() {
+        return deadlift;
+    }
+
+    public void setDeadlift(Integer deadlift) {
+        this.deadlift = deadlift;
+    }
+
+    @Column(name = "Bench")
+    private Integer bench;
+
+    public Integer getBench() {
+        return bench;
+    }
+
+    public void setBench(Integer bench) {
+        this.bench = bench;
+    }
+
+    @Column(name = "Height")
+    private String height;
+
+    public String getHeight() {
+        return height;
+    }
+
+    public void setHeight(String height) {
+        this.height = height;
     }
 }
