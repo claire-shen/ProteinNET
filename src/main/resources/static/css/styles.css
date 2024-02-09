@@ -67,7 +67,7 @@ body {
 
     img {
         width: 50%;
-        Margin: 6%;
+        Margin: 5%;
     }
 
     div > p:first-child {
@@ -94,7 +94,7 @@ body {
     div > p:last-child {
         marin-top: 10px;
         font-weight: bold;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 }
 

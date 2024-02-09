@@ -26,6 +26,13 @@ public class MainController {
         return "index"; // Thymeleaf template name (allUsers.html)
     }
 
+    @PostMapping(value="/add")
+    public String addNewUser (@ModelAttribute User user) {
+        serviceLayer.addUser(user);
+        return "redirect:/index/all";
+        //return "user added";
+    }
+
 
 //    @PostMapping(value="/add")
 //    public String addNewUser (@ModelAttribute User user) {

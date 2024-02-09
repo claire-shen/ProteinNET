@@ -16,10 +16,10 @@
             </div>
             <div class="middle">
                 <div>
-                    <p></p>
-                    <p>Height </p>
-                    <p>City blah blah here</p>
-                    <p>First Last</p>
+                    <p th:text="'Age: ' + ${user.age}"></p>
+                    <p th:text="'Height: ' + ${user.height}"></p>
+                    <p th:text="'City: ' + ${user.city}"></p>
+                    <p th:text="'Name: ' + ${user.firstName + ' ' + user.lastName}"></p>
                 </div>
                 <img src="https://api.multiavatar.com/Starcrasher.png"/>
 
@@ -27,98 +27,20 @@
             <div class="bottom">
                 <div>
                     <p>Squat</p>
-                    <p>GAHHH</p>
+                    <p th:text="${user.squat}"></p>
                 </div>
                 <div>
                     <p>Bench</p>
-                    <p>###</p>
+                    <p th:text="${user.bench}"></p>
                 </div>
                 <div>
                     <p>Deadlift</p>
-                    <p>###</p>
+                    <p th:text="${user.deadlift}"></p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="card">
-        <div class="content">
-            <div class="top">
-                <p>ID:INSERST HERE</p>
-            </div>
-            <div class="middle">
-                <div>
-                    <p>th:text="${variableName}" </p>
-                    <p>Height </p>
-                    <p>City blah blah here</p>
-                    <p>First Last</p>
-                </div>
-                <img src="https://api.multiavatar.com/Starcrasher.png"/>
-
-            </div>
-            <div class="bottom">
-                <div>
-                    <p>Squat</p>
-                    <p>###</p>
-                </div>
-                <div>
-                    <p>Bench</p>
-                    <p>###</p>
-                </div>
-                <div>
-                    <p>Deadlift</p>
-                    <p>###</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <div class="content">
-            <div class="top">
-                <p>ID:INSERST HERE</p>
-            </div>
-            <div class="middle">
-                <div>
-                    <p>Age: </p>
-                    <p>Height </p>
-                    <p>City blah blah here</p>
-                    <p>First Last</p>
-                </div>
-                <img src="https://api.multiavatar.com/Starcrasher.png"/>
-
-            </div>
-            <div class="bottom">
-                <div>
-                    <p>Squat</p>
-                    <p>###</p>
-                </div>
-                <div>
-                    <p>Bench</p>
-                    <p>###</p>
-                </div>
-                <div>
-                    <p>Deadlift</p>
-                    <p>###</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-    <div class="card">THREE</div>
-    <div class="card">FOUR</div>
-    <div class="card">FIVE</div>
-    <div class="card">SIX</div>
-    <div class="card">SEVEN</div>
-    <div class="card">EIGHT</div>
-    <div class="card">NINE</div>
-    <div class="card">TEN</div>
-    <div class="card">ELEVEN</div>
-    <div class="card">TWELVE</div>
 </div>
 </body>
 </html>
