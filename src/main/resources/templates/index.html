@@ -1,14 +1,114 @@
 <!DOCTYPE html>
-<html>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org" >
 <head>
-    <meta charset = "ISO-8859-1" />
-    <link href = "css/styles.css" rel = "stylesheet"/>
+    <meta charset="UTF-8">
+    <link th:href="@{/css/styles.css}" rel ="stylesheet"/>
     <title>Welcome to ProteinNET</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
 <div class="cards">
-    <div class="card">ONE</div>
-    <div class="card">TWO</div>
+
+    <div class="card" th:each="user: ${users}">
+        <div class="content">
+            <div class="top">
+                <p th:text="'ID: ' + ${user.personId}"></p>
+            </div>
+            <div class="middle">
+                <div>
+                    <p></p>
+                    <p>Height </p>
+                    <p>City blah blah here</p>
+                    <p>First Last</p>
+                </div>
+                <img src="https://api.multiavatar.com/Starcrasher.png"/>
+
+            </div>
+            <div class="bottom">
+                <div>
+                    <p>Squat</p>
+                    <p>GAHHH</p>
+                </div>
+                <div>
+                    <p>Bench</p>
+                    <p>###</p>
+                </div>
+                <div>
+                    <p>Deadlift</p>
+                    <p>###</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="content">
+            <div class="top">
+                <p>ID:INSERST HERE</p>
+            </div>
+            <div class="middle">
+                <div>
+                    <p>th:text="${variableName}" </p>
+                    <p>Height </p>
+                    <p>City blah blah here</p>
+                    <p>First Last</p>
+                </div>
+                <img src="https://api.multiavatar.com/Starcrasher.png"/>
+
+            </div>
+            <div class="bottom">
+                <div>
+                    <p>Squat</p>
+                    <p>###</p>
+                </div>
+                <div>
+                    <p>Bench</p>
+                    <p>###</p>
+                </div>
+                <div>
+                    <p>Deadlift</p>
+                    <p>###</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="content">
+            <div class="top">
+                <p>ID:INSERST HERE</p>
+            </div>
+            <div class="middle">
+                <div>
+                    <p>Age: </p>
+                    <p>Height </p>
+                    <p>City blah blah here</p>
+                    <p>First Last</p>
+                </div>
+                <img src="https://api.multiavatar.com/Starcrasher.png"/>
+
+            </div>
+            <div class="bottom">
+                <div>
+                    <p>Squat</p>
+                    <p>###</p>
+                </div>
+                <div>
+                    <p>Bench</p>
+                    <p>###</p>
+                </div>
+                <div>
+                    <p>Deadlift</p>
+                    <p>###</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
     <div class="card">THREE</div>
     <div class="card">FOUR</div>
     <div class="card">FIVE</div>
