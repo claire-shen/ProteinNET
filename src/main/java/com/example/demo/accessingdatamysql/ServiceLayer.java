@@ -20,4 +20,16 @@ public class ServiceLayer {
         return userRepository.findAll();
     }
 
+    public User getUserById(Integer id) {
+        return userRepository.findById(id).orElse(null);
+    }
+
+    public void updateUser(User updateUser) {
+        userRepository.save(updateUser);
+    }
+
+    public void deleteUser(Integer id) {
+        userRepository.deleteById(id);
+    }
+
 }

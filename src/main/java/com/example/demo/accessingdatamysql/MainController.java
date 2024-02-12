@@ -30,65 +30,63 @@ public class MainController {
     public String addNewUser (@ModelAttribute User user) {
         serviceLayer.addUser(user);
         return "redirect:/index/all";
-        //return "user added";
     }
 
+    @PutMapping(value="/update/{id}")
+    public String updateUser(@PathVariable Integer id, @ModelAttribute User updateUser) {
+        User existingUser = serviceLayer.getUserById(id);
+        if (existingUser != null) {
+            if (updateUser.getFirstName() != null) {
+                existingUser.setFirstName(updateUser.getFirstName());
+            }
+            if (updateUser.getLastName() != null) {
+                existingUser.setLastName(updateUser.getLastName());
+            }
+            if (updateUser.getAddress() != null) {
+                existingUser.setAddress(updateUser.getAddress());
+            }
+            if (updateUser.getCity() != null) {
+                existingUser.setCity(updateUser.getCity());
+            }
+            if (updateUser.getFreePass() != null) {
+                existingUser.setFreePass(updateUser.getFreePass());
+            }
+            if (updateUser.getFee() != null) {
+                existingUser.setFee(updateUser.getFee());
+            }
+            if (updateUser.getBirthDate() != null) {
+                existingUser.setBirthDate(updateUser.getBirthDate());
+            }
+            if (updateUser.getSquat() != null) {
+                existingUser.setSquat(updateUser.getSquat());
+            }
+            if (updateUser.getDeadlift() != null) {
+                existingUser.setDeadlift(updateUser.getDeadlift());
+            }
+            if (updateUser.getBench() != null) {
+                existingUser.setBench(updateUser.getBench());
+            }
+            if (updateUser.getHeight() != null) {
+                existingUser.setHeight(updateUser.getHeight());
+            }
+            // Save the updated user
+            serviceLayer.updateUser(existingUser);
+            return "redirect:/index/all";
+        } else {
+            // Handle case where user with given id doesn't exist
+            return "User Id Invalid";
+        }
+    }
 
-//    @PostMapping(value="/add")
-//    public String addNewUser (@ModelAttribute User user) {
-//        userRepository.addUser(user);
-//        return "redirect:/index/all"; // Redirect to the endpoint to display all users
-//    }
+    @DeleteMapping(value="/delete/{id}")
+    public String deleteUser(@PathVariable Integer id) {
+        User existingUser = serviceLayer.getUserById(id);
+        if (existingUser != null) {
+            serviceLayer.deleteUser(id);
+            return "redirect:/index/all";
+        } else {
+            return "User not found";
+        }
+    }
 
-//
-//    @PostMapping(value="/add") // Map ONLY POST Requests
-//    public @ResponseBody String addNewUser (
-//            @RequestParam String lastName,
-//            @RequestParam String firstName,
-//            @RequestParam String address,
-//            @RequestParam String city,
-//            @RequestParam Boolean freePass,
-//            @RequestParam Integer squat,
-//            @RequestParam Integer bench,
-//            @RequestParam Integer deadlift,
-//            @RequestParam String height,
-//            @RequestParam Float fee,
-//            @RequestParam("birthDate")
-//            @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate birthDate) {
-//
-//
-//        // Create a new User object and set its properties
-//        User user = new User();
-//        user.setFirstName(firstName);
-//        user.setLastName(lastName);
-//        user.setAddress(address);
-//        user.setCity(city);
-//        user.setFreePass(freePass);
-//        user.setFee(fee);
-//        user.setSquat(squat);
-//        user.setBench(bench);
-//        user.setDeadlift(deadlift);
-//        user.setHeight(height);
-//        user.setBirthDate(birthDate);
-//
-//        // Save the user object to the database
-//        userRepository.save(user);
-//
-//        // Return a response
-//        return "User saved successfully!";
-//    }
-//
-//    //return everything
-//    @GetMapping(value="/all")
-//    public @ResponseBody Iterable<User> getAllUsers() {
-//        // This returns a JSON or XML with the users
-//        return userRepository.findAll();
-//    }
-//
-//    @GetMapping("/data")
-//    public String getData(Model model) {
-//
-//
-//        return "index";
-//    }
 }
