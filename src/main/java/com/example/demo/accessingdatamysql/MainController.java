@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.ui.Model;
+import java.util.List;
+import java.util.ArrayList;
 
 
 @Controller
@@ -25,6 +27,7 @@ public class MainController {
         model.addAttribute("users", users);
         return "index"; // Thymeleaf template name (allUsers.html)
     }
+
 
     @PostMapping(value="/add")
     public String addNewUser (@ModelAttribute User user) {
@@ -88,5 +91,37 @@ public class MainController {
             return "User not found";
         }
     }
+
+    @GetMapping(value="/search")
+    public String searchUsers(@RequestParam(required = false) String firstName,
+                              @RequestParam(required = false) String lastName,
+                              Model model) {
+        List<User> users;
+
+        // Check if both first name and last name are provided
+        if (firstName != null && lastName != null) {
+            users = serviceLayer.searchByFirstNameAndLastName(firstName, lastName);
+        }
+        // Check if only first name is provided
+        else if (firstName != null) {
+            users = serviceLayer.searchByFirstName(firstName);
+        }
+        // Check if only last name is provided
+        else if (lastName != null) {
+            users = serviceLayer.searchByLastName(lastName);
+        }
+        // If no search parameters provided, retrieve all users
+        else {
+            Iterable<User> usersIterable = serviceLayer.getAllUsers();
+            users = new ArrayList<>();
+            usersIterable.forEach(users::add);
+        }
+
+        model.addAttribute("users", users);
+        return "index";
+    }
+
+
+
 
 }

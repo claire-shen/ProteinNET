@@ -2,6 +2,7 @@ package com.example.demo.accessingdatamysql;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.List;
 
 @Service
 public class ServiceLayer {
@@ -31,5 +32,18 @@ public class ServiceLayer {
     public void deleteUser(Integer id) {
         userRepository.deleteById(id);
     }
+
+    public List<User> searchByFirstName(String firstName) {
+        return userRepository.findByFirstName(firstName);
+    }
+
+    public List<User> searchByLastName(String lastName) {
+        return userRepository.findByLastName(lastName);
+    }
+
+    public List<User> searchByFirstNameAndLastName(String firstName, String lastName) {
+        return userRepository.findByFirstNameAndLastName(firstName, lastName);
+    }
+
 
 }
