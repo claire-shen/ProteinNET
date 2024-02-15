@@ -44,6 +44,4 @@ public class ServiceLayer {
     public List<User> searchByFirstNameAndLastName(String firstName, String lastName) {
         return userRepository.findByFirstNameAndLastName(firstName, lastName);
     }
-
-
 }

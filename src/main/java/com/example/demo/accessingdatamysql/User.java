@@ -22,7 +22,7 @@ public class User {
     }
 
     public void setPersonId(Integer personId) {
-        this.personID = personId; // Corrected variable assignment
+        this.personID = personId;
     }
 
     @Column(name = "LastName")
@@ -111,8 +111,6 @@ public class User {
         this.age = age;
     }
 
-    //user.setAge(user.getAge());
-
     @Column(name = "Squat")
     private Integer squat;
 
@@ -156,4 +154,5 @@ public class User {
     public void setHeight(String height) {
         this.height = height;
     }
+
 }

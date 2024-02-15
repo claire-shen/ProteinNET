@@ -11,55 +11,55 @@
 </head>
 
 <body>
-
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <div class="header">
-                <div class="search">
-                    <form th:action="@{/index/search}" method="get">
-                        <input type="text" name="firstName" placeholder="Enter First Name">
-                        <input type="text" name="lastName" placeholder="Enter Last Name">
-                        <button type="submit">Search</button>
-                    </form>
-                </div>
-                <div class="back-button">
-                    <form action="/index/all" method="get">
-                        <button type="submit">Back to All Users</button>
-                    </form>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="header">
+                    <div class="search">
+                        <form th:action="@{/index/search}" method="get">
+                            <input type="text" name="firstName" placeholder="Enter First Name">
+                            <input type="text" name="lastName" placeholder="Enter Last Name">
+                            <button type="submit">Search</button>
+                        </form>
+                    </div>
+                    <div class="back-button">
+                        <form action="/index/all" method="get">
+                            <button type="submit">Back to All Users</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row mt-4">
-        <div class="col">
-            <div class="cards">
-                <div class="card" th:each="user: ${users}">
-                    <div class="content">
-                        <div class="top">
-                            <p th:text="'ID: ' + ${user.personId}"></p>
-                        </div>
-                        <div class="middle">
-                            <div>
-                                <p th:text="'Age: ' + ${user.age}"></p>
-                                <p th:text="'Height: ' + ${user.height}"></p>
-                                <p th:text="'City: ' + ${user.city}"></p>
-                                <p th:text="'Name: ' + ${user.firstName + ' ' + user.lastName}"></p>
+        <div class="row mt-4">
+            <div class="col">
+                <div class="cards">
+                    <div class="card" th:each="user: ${users}">
+                        <div class="content">
+                            <div class="top">
+                                <p th:text="'ID: ' + ${user.personId}"></p>
                             </div>
-                            <img src="https://api.multiavatar.com/Starcrasher.png" />
-                        </div>
-                        <div class="bottom">
-                            <div>
-                                <p>Squat</p>
-                                <p th:text="${user.squat}"></p>
+                            <div class="middle">
+                                <div>
+                                    <p th:text="'Age: ' + ${user.age}"></p>
+                                    <p th:text="'Height: ' + ${user.height}"></p>
+                                    <p th:text="'City: ' + ${user.city}"></p>
+                                    <p th:text="'Name: ' + ${user.firstName + ' ' + user.lastName}"></p>
+                                </div>
+                                <img src="https://api.multiavatar.com/Starcrasher.png" />
                             </div>
-                            <div>
-                                <p>Bench</p>
-                                <p th:text="${user.bench}"></p>
-                            </div>
-                            <div>
-                                <p>Deadlift</p>
-                                <p th:text="${user.deadlift}"></p>
+                            <div class="bottom">
+                                <div>
+                                    <p>Squat</p>
+                                    <p th:text="${user.squat}"></p>
+                                </div>
+                                <div>
+                                    <p>Bench</p>
+                                    <p th:text="${user.bench}"></p>
+                                </div>
+                                <div>
+                                    <p>Deadlift</p>
+                                    <p th:text="${user.deadlift}"></p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -67,8 +67,6 @@
             </div>
         </div>
     </div>
-</div>
-
 </body>
 
 </html>

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 
 @Controller
-@RequestMapping(value="/index") // This means URL's start with /demo (after Application path)
+@RequestMapping(value="/index") // This is the controller for the /index URL
 public class MainController {
 
     private ServiceLayer serviceLayer;
@@ -25,7 +25,7 @@ public class MainController {
     public String getAllUsers(Model model) {
         Iterable<User> users = serviceLayer.getAllUsers();
         model.addAttribute("users", users);
-        return "index"; // Thymeleaf template name (allUsers.html)
+        return "index"; //
     }
 
 
@@ -120,8 +120,5 @@ public class MainController {
         model.addAttribute("users", users);
         return "index";
     }
-
-
-
 
 }
