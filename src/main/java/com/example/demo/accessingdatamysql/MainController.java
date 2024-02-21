@@ -28,7 +28,6 @@ public class MainController {
         return "index"; //
     }
 
-
     @PostMapping(value="/add")
     public String addNewUser (@ModelAttribute User user) {
         serviceLayer.addUser(user);
