@@ -44,9 +44,9 @@
                                     <p th:text="'Age: ' + ${user.age}"></p>
                                     <p th:text="'Height: ' + ${user.height}"></p>
                                     <p th:text="'City: ' + ${user.city}"></p>
-                                    <p th:text="'Name: ' + ${user.firstName + ' ' + user.lastName}"></p>
+                                    <p th:text="${user.firstName + ' ' + user.lastName}"></p>
                                 </div>
-                                <img th:src="@{'https://api.multiavatar.com/avatar/' + ${user.firstName + user.city} + '.png'}" />
+                                <img th:src="@{'https://robohash.org/' + ${user.firstName + user.lastName +user.personId} + '.png'}" />
 
                             </div>
                             <div class="bottom">
